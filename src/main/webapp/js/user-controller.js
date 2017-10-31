@@ -79,5 +79,20 @@ var userController = {
 			that.uiElements.profileButton.hide();
 			that.uiElements.loginButton.show();
 		});
+		this.uiElements.profileButton.click(function(e) {
+			var url = that.data.config.apiBaseUrl + '/user-profile';
+
+			$.get(url, function(data, status) {
+				alert(JSON.stringify(data));
+			}).done(function() {
+			}).fail(function(e) {
+				alert("error");
+				alert(e.responseStatus);
+			}).always(function() {
+				// alert("finished");
+			});
+
+		});
 	}
+
 }
